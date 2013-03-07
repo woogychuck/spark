@@ -27,4 +27,34 @@
 		echo $json_output;
 	}
 	
+	function save_data($table_name, $data, $ignore_fields = array('id','created')){
+		$is_update = isset($data['id']) && $data['id'] != '';
+		$save_query = '';
+		if($is_update){
+			$value_clause = '';
+			foreach($data as $col => $value){
+				if(!in_array($col, $ignore_fields)){
+					$value_clause .= "`$col` = '$value',";
+				}
+			}
+			$value_clause = trim($value_clause,',');
+			$save_query = "UPDATE $table_name SET $value_clause WHERE id = ".$data['id'];
+		}else{
+			$column_clause = '';
+			$value_clause = '';
+			foreach($data as $col => $value){
+				if(!in_array($col, $ignore_fields)){
+					$column_clause .= "`$col`,";
+					$value_clause .= "'$value',";
+				}
+			}
+			$column_clause = trim($column_clause,',');
+			$value_clause = trim($value_clause,',');
+			$save_query = "INSERT INTO $table_name ($column_clause) VALUES ($value_clause)";
+		}
+		$result = mysql_query($save_query);
+		
+		return $result;
+	}
+	
 ?>

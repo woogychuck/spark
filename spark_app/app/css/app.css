@@ -1,4 +1,8 @@
 /* app css stylesheet */
+body {
+	font-family:Arial,sans-serif;
+	color:#444;
+}
 
 .menu {
   list-style: none;
@@ -27,4 +31,32 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+
+.form-row {
+	line-height:1.5em;
+	margin-bottom:10px;
+}
+
+.form-row label{
+	font-weight:bold;
+	display:block;
+}
+
+.form-row input, .form-row select{
+	display:block;
+	width:200px;
+}
+
+.form-row textarea {
+	display:block;
+	width:400px;
+}
+
+.action-row {
+	width:400px;
+	text-align:center;
+	padding:10px;
+	border-top:1px solid #999;
 }

@@ -1,0 +1,25 @@
+<div class="form-view">
+	<div ng-hide="loading">
+		<form name="userForm">
+			<div class="form-row">
+				<label for="user-name">Name:</label>
+				<input ng-model="user.display_name" type="text" id="user-name" required />
+			</div>
+			<div class="form-row">
+				<label for="user-email">Email:</label>
+				<input ng-model="user.email" type="text" id="user-email" required />
+			</div>
+			<div class="action-row">
+				<button ng-click="cancel()" ng-disabled="isCancelDisabled()">Cancel</button>
+				<button ng-click="save()" ng-disabled="isSaveDisabled()">Save</button>
+			</div>
+		</form>
+		<div ng-show="saved">
+			<strong>Data saved!</strong> - <a href="#/users">Return to Listing</a>
+		</div>
+	</div>
+	<div class="loading" ng-show="loading">
+		Doing Server Things...
+		<img src="img/ajax-loader.gif" />
+	</div>
+</div>

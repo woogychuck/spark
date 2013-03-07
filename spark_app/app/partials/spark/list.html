@@ -1,0 +1,10 @@
+<div class="list-view">
+	<ul>
+		<li ng-repeat="spark in sparks">
+			<strong>{{spark.title}}</strong>
+			<a href="#/spark/details/{{spark.id}}">[view]</a>
+			<a href="#/spark/edit/{{spark.id}}">[edit]</a>
+		</li>
+		<li><a href="#/spark/create">Add New Spark</a></li>
+	</ul>
+</div>

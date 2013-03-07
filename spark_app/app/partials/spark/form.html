@@ -1,0 +1,25 @@
+<div class="form-view">
+	<div ng-hide="loading">
+		<form name="sparkForm">
+			<div class="form-row">
+				<label for="spark-title">Title:</label>
+				<input ng-model="spark.title" type="text" id="spark-title" required />
+			</div>
+			<div class="form-row">
+				<label for="spark-description">Description:</label>
+				<textarea ng-model="spark.description" rows="10" required></textarea>
+			</div>
+			<div class="action-row">
+				<button ng-click="cancel()" ng-disabled="isCancelDisabled()">Cancel</button>
+				<button ng-click="save()" ng-disabled="isSaveDisabled()">Save</button>
+			</div>
+		</form>
+		<div ng-show="saved">
+			<strong>Data saved!</strong> - <a href="#/sparks">Return to Listing</a>
+		</div>
+	</div>
+	<div class="loading" ng-show="loading">
+		Doing Server Things...
+		<img src="img/ajax-loader.gif" />
+	</div>
+</div>

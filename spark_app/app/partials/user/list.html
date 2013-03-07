@@ -1,0 +1,10 @@
+<div class="list-view">
+	<ul>
+		<li ng-repeat="user in users">
+			<strong>{{user.display_name}}</strong>
+			<a href="#/user/details/{{user.id}}">[view]</a>
+			<a href="#/user/edit/{{user.id}}">[edit]</a>
+		</li>
+		<li><a href="#/user/create">Add New User</a></li>
+	</ul>
+</div>
